@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Westminster Weather Radar</title>
+<style>
+*{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden}body{font-family:Arial,Helvetica,sans-serif;background:#132c37;color:#fff;display:flex;flex-direction:column}header{padding:22px 34px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:5px solid #64c6d3}h1{font-size:clamp(22px,2.2vw,44px);letter-spacing:.06em;margin:0;font-weight:700}#timestamp{font-size:clamp(16px,1.3vw,26px);text-align:right;line-height:1.4}#map{position:relative;flex:1;min-height:0;overflow:hidden;background:#dde5e6}.layer{position:absolute;inset:0;overflow:hidden}.tile{position:absolute;max-width:none;user-select:none}#basemap{filter:saturate(.45)}#radar{opacity:.72}#labels{pointer-events:none}.place{position:absolute;transform:translate(-50%,-50%);color:#162f3a;font-size:clamp(14px,1.15vw,23px);font-weight:bold;white-space:nowrap;text-shadow:0 1px 2px white,1px 0 2px white,-1px 0 2px white,0 -1px 2px white;background:#ffffffd9;padding:3px 7px;border-radius:3px}.school{background:rgba(19,44,55,.48);color:white;text-shadow:0 1px 3px #132c37;padding:8px 12px;border:2px solid white}.school:before{content:'●';color:#64c6d3;margin-right:7px}#status{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#132c37;color:white;padding:12px 20px;font-size:clamp(16px,1.3vw,24px);text-align:center;max-width:90%;z-index:4}#status:empty{display:none}footer{padding:12px 32px;display:flex;justify-content:space-between;gap:12px;font-size:clamp(14px,1vw,20px);line-height:1.4}a{color:inherit}noscript{position:absolute;top:45%;left:10%;background:#132c37;padding:20px;z-index:5}@media(max-width:700px){header{padding:14px 16px;display:block}#timestamp{text-align:left;margin-top:6px}footer{padding:9px 12px;flex-wrap:wrap}.school{font-size:13px}.place{font-size:13px}}
+</style>
+</head>
+<body>
+<header><h1>WESTMINSTER WEATHER RADAR</h1><div id="timestamp" aria-live="polite">Loading latest radar…</div></header>
+<main id="map" aria-label="Static weather radar centered on Westminster and Buckhead in metropolitan Atlanta">
+<div id="basemap" class="layer"></div><div id="radar" class="layer"></div><div id="labels" class="layer"></div><div id="status" role="status">Loading map and radar…</div>
+<noscript>JavaScript is required to display the latest radar.</noscript>
+</main>
+<footer><span>Weather data by <a href="https://www.rainviewer.com/">RainViewer</a></span><span>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</span></footer>
+<script src="radar.js"></script>
+</body>
+</html>
