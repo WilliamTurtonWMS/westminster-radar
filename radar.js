@@ -5,7 +5,7 @@
   var BASEMAP = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
   var CENTER = [33.847, -84.428]; // Approximate Westminster campus / Buckhead.
   var places = [
-    ['Westminster',CENTER[0],CENTER[1]]
+    ['Westminster',33.84429,-84.43615] // Campus at 1424 West Paces Ferry Road NW.
   ];
   var map = document.getElementById('map');
   var timestamp = document.getElementById('timestamp');
@@ -78,7 +78,9 @@
     document.getElementById('radar').textContent='';
     var labels=document.getElementById('labels');labels.textContent='';
     places.forEach(function(p){var pos=world(p[1],p[2]);var el=document.createElement('span');
-      el.className='place'+(p[0]==='Westminster'?' school':'');el.textContent=p[0];
+      el.className='place school';
+      el.setAttribute('aria-label','Westminster — 1424 West Paces Ferry Road NW');
+      el.innerHTML='<svg class="map-pin" viewBox="0 0 28 36" aria-hidden="true"><path d="M14 35C11 30 1 21 1 14a13 13 0 0 1 26 0c0 7-10 16-13 21Z" fill="#126b65" stroke="white" stroke-width="2"/><circle cx="14" cy="14" r="4.5" fill="white"/></svg><span class="pin-label">Westminster</span>';
       el.style.left=((pos[0]-layout.left)*layout.scale)+'px';el.style.top=((pos[1]-layout.top)*layout.scale)+'px';labels.appendChild(el);
     });
     var baseZoom=Math.min(11,Math.max(1,Math.floor(Math.log(layout.scale/256)/Math.LN2)));
